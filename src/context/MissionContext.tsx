@@ -12,7 +12,7 @@ type MissionContextType = {
 
 const MissionContext = createContext<MissionContextType | undefined>(undefined);
 
-const STORAGE_KEY = '@space_mission_control';
+const STORAGE_KEY = '@space_mission_control_v2';
 
 const initialMission: MissionData = {
   missionName: 'Orbital Guardian',
@@ -25,13 +25,24 @@ const initialMission: MissionData = {
   radiation: 12,
   autoAlertsEnabled: true,
   thresholds: {
-    energyCritical: 20,
-    temperatureCritical: 40,
-    oxygenCritical: 75,
-    communicationCritical: 50,
-    stabilityCritical: 60,
-    radiationCritical: 70,
-  },
+  energyWarning: 40,
+  energyCritical: 20,
+
+  temperatureWarning: 32,
+  temperatureCritical: 40,
+
+  oxygenWarning: 85,
+  oxygenCritical: 75,
+
+  communicationWarning: 70,
+  communicationCritical: 50,
+
+  stabilityWarning: 75,
+  stabilityCritical: 60,
+
+  radiationWarning: 45,
+  radiationCritical: 70,
+},
 };
 
 type MissionProviderProps = {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Alert,
   KeyboardAvoidingView,
@@ -33,6 +33,19 @@ export default function MissionScreen() {
   });
 
   const [errors, setErrors] = useState<MissionFormErrors>({});
+
+  useEffect(() => {
+  setForm({
+    missionName: mission.missionName,
+    operatorName: mission.operatorName,
+    energy: String(mission.energy),
+    temperature: String(mission.temperature),
+    oxygen: String(mission.oxygen),
+    communication: String(mission.communication),
+    orbitalStability: String(mission.orbitalStability),
+    radiation: String(mission.radiation),
+  });
+}, [mission]);
 
   function updateField(field: keyof MissionFormData, value: string) {
     setForm((previousForm) => ({

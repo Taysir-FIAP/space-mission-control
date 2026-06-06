@@ -6,12 +6,23 @@ import { MissionCard } from '../../components/MissionCard';
 export default function HomeScreen() {
   const { mission, alerts } = useMission();
 
-  const generalStatus =
-    alerts.length > 0 ? 'Atenção Operacional' : 'Operação Normal';
+const criticalAlerts = alerts.filter((alert) => alert.type === 'critical').length;
+const warningAlerts = alerts.filter((alert) => alert.type === 'warning').length;
 
-  const generalStatusColor =
-    alerts.length > 0 ? colors.warning : colors.success;
+const generalStatus =
+  criticalAlerts > 0
+    ? 'Falha Crítica Iminente'
+    : warningAlerts > 0
+      ? 'Atenção Operacional'
+      : 'Operação Normal';
 
+const generalStatusColor =
+  criticalAlerts > 0
+    ? colors.danger
+    : warningAlerts > 0
+      ? colors.warning
+      : colors.success;
+      
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <Text style={styles.kicker}>SPACE MISSION CONTROL</Text>
