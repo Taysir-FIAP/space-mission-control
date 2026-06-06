@@ -1,8 +1,11 @@
 import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { colors } from '../../constants/colors';
+import { useMission } from '../../context/MissionContext';
 
 export default function TabsLayout() {
+  const { alerts } = useMission();
+
   return (
     <Tabs
       screenOptions={{
@@ -42,6 +45,7 @@ export default function TabsLayout() {
         name="alerts"
         options={{
           title: 'Alertas',
+          tabBarBadge: alerts.length > 0 ? alerts.length : undefined,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="warning-outline" size={size} color={color} />
           ),
