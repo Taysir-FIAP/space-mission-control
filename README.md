@@ -126,3 +126,111 @@ Exemplo:
 * Energia abaixo ou igual a 20%
 * Comunicação abaixo ou igual a 50%
 * Temperatura acima ou igual a 40°C
+
+## Como Executar o Projeto
+
+### 1. Clonar o repositório
+
+bash
+git clone https://github.com/Taysir-FIAP/space-mission-control.git
+
+
+### 2. Acessar a pasta do projeto
+
+bash
+cd space-mission-control
+
+
+### 3. Instalar as dependências
+
+bash
+npm install
+
+
+### 4. Executar o projeto
+
+bash
+npx expo start
+
+
+### 5. Abrir o aplicativo
+
+Após iniciar o Expo, é possível abrir o projeto de algumas formas:
+
+* Pressionar w para abrir no navegador
+* Escanear o QR Code com o aplicativo Expo Go
+* Executar em emulador Android ou iOS
+
+## Estrutura do Projeto
+
+txt
+space-mission-control/
+├── src/
+│   ├── app/
+│   │   ├── _layout.tsx
+│   │   └── (tabs)/
+│   │       ├── _layout.tsx
+│   │       ├── index.tsx
+│   │       ├── dashboard.tsx
+│   │       ├── alerts.tsx
+│   │       ├── mission.tsx
+│   │       └── settings.tsx
+│   ├── components/
+│   │   ├── AlertCard.tsx
+│   │   ├── MissionCard.tsx
+│   │   └── SensorCard.tsx
+│   ├── constants/
+│   │   └── colors.ts
+│   ├── context/
+│   │   └── MissionContext.tsx
+│   └── utils/
+│       ├── alertRules.ts
+│       └── validations.ts
+├── assets/
+├── app.json
+├── package.json
+├── package-lock.json
+└── README.md
+
+
+## Principais Arquivos
+
+### MissionContext.tsx
+
+Responsável pelo gerenciamento global dos dados da missão utilizando Context API.
+
+Também realiza a persistência local dos dados com AsyncStorage, permitindo que as informações sejam mantidas mesmo após fechar e abrir o aplicativo novamente.
+
+### alertRules.ts
+
+Contém as regras responsáveis por gerar os alertas automáticos da missão.
+
+As regras verificam os parâmetros da missão e retornam alertas de atenção ou alertas críticos de acordo com os limiares configurados.
+
+### validations.ts
+
+Contém as validações utilizadas no formulário da tela Missão.
+
+As validações verificam campos obrigatórios, formatos numéricos e limites aceitos para cada parâmetro.
+
+### colors.ts
+
+Centraliza a paleta de cores utilizada no aplicativo, mantendo a identidade visual espacial e facilitando a padronização da interface.
+
+## Requisitos Atendidos
+
+* Desenvolvimento mobile com React Native e Expo
+* Navegação entre telas utilizando Expo Router
+* Dashboard com sensores, energia, comunicação e estabilidade orbital
+* Alertas automáticos para parâmetros em atenção e críticos
+* Formulário com validação de campos
+* Persistência local com AsyncStorage
+* Gerenciamento de estado global com Context API
+* Design visual temático coerente com o contexto espacial
+* Repositório com código-fonte completo
+* README com descrição do projeto e integrantes
+* Commits demonstrando evolução do desenvolvimento
+
+## Link do Repositório
+
+https://github.com/Taysir-FIAP/space-mission-control
