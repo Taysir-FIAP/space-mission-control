@@ -1,56 +1,128 @@
-# Welcome to your Expo app 👋
+# Space Mission Control
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicativo mobile cross-platform desenvolvido em **React Native com Expo** para simular uma central de monitoramento de missões espaciais.
 
-## Get started
+O projeto foi desenvolvido para a **Global Solution** da disciplina **Cross-Platform Application Development**, com o objetivo de entregar uma interface funcional, visualmente temática e tecnicamente sólida, semelhante a um painel de controle de uma missão espacial real.
 
-1. Install dependencies
+## Integrantes
 
-   ```bash
-   npm install
-   ```
+* Taysir Fauzi Ali - RM: 564884
+* Rafael de Medeiros Cordeiro - RM: 562167
+* Caique Baptistella de Vicente Albertino - RM: 564747
 
-2. Start the app
+## Descrição do Projeto
 
-   ```bash
-   npx expo start
-   ```
+O **Space Mission Control** é um aplicativo que simula uma central de controle responsável pelo acompanhamento de uma missão espacial.
 
-In the output, you'll find options to open the app in a
+A aplicação permite monitorar dados operacionais como energia, temperatura, oxigênio, comunicação, estabilidade orbital e radiação. A partir desses dados, o sistema gera automaticamente avisos e alertas críticos quando os parâmetros ultrapassam os limites configurados.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+O app também permite atualizar os dados da missão por meio de um formulário com validação e configurar os limiares de atenção e criticidade para cada parâmetro monitorado.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Tecnologias Utilizadas
 
-## Get a fresh project
+* React Native
+* Expo
+* Expo Router
+* TypeScript
+* Context API
+* AsyncStorage
+* React Native Components
+* Expo Vector Icons
 
-When you're ready, run:
+## Funcionalidades
 
-```bash
-npm run reset-project
-```
+* Dashboard com dados operacionais da missão
+* Monitoramento de sensores em tempo real
+* Alertas automáticos por nível de criticidade
+* Diferenciação entre aviso de atenção e alerta crítico
+* Formulário com validação de campos obrigatórios
+* Validação de formatos e limites numéricos
+* Configuração de limiares de atenção e criticidade
+* Persistência local dos dados com AsyncStorage
+* Gerenciamento global de estado com Context API
+* Navegação entre telas com Expo Router
+* Interface visual temática inspirada em centrais espaciais
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Telas do Aplicativo
 
-### Other setup steps
+### Home
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+Tela inicial com uma visão geral da missão, exibindo o nome da missão, operador responsável, energia disponível, comunicação, quantidade de alertas ativos e status geral da operação.
 
-## Learn more
+O status geral pode variar entre:
 
-To learn more about developing your project with Expo, look at the following resources:
+* Operação Normal
+* Atenção Operacional
+* Falha Crítica Iminente
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Dashboard
 
-## Join the community
+Tela responsável por exibir os principais sensores da missão:
 
-Join our community of developers creating universal apps.
+* Energia
+* Oxigênio
+* Comunicação
+* Estabilidade orbital
+* Radiação
+* Temperatura
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Cada sensor apresenta valor atual, descrição, barra de progresso e status visual indicando se o parâmetro está normal, em atenção ou crítico.
+
+### Alertas
+
+Tela que lista os avisos e alertas críticos gerados automaticamente pelo sistema.
+
+Os alertas são criados quando algum parâmetro atinge os limites configurados na aplicação. O app diferencia alertas de atenção, exibidos em amarelo, e alertas críticos, exibidos em vermelho.
+
+### Missão
+
+Tela com formulário para atualizar os dados operacionais da missão.
+
+Campos disponíveis:
+
+* Nome da missão
+* Operador responsável
+* Energia
+* Temperatura
+* Oxigênio
+* Comunicação
+* Estabilidade orbital
+* Radiação
+
+O formulário possui validações para campos obrigatórios, valores numéricos e limites permitidos.
+
+### Configurações
+
+Tela para gerenciamento dos alertas e parâmetros da missão.
+
+Funcionalidades disponíveis:
+
+* Ativar ou desativar alertas automáticos
+* Configurar limites de atenção
+* Configurar limites críticos
+* Resetar os dados da missão
+* Manter os dados persistidos localmente com AsyncStorage
+
+## Regras de Alertas
+
+O sistema trabalha com dois níveis de alerta:
+
+### Atenção
+
+Representa uma situação que ainda não é crítica, mas exige acompanhamento da central.
+
+Exemplo:
+
+* Energia abaixo ou igual a 40%
+* Comunicação abaixo ou igual a 70%
+* Temperatura acima ou igual a 32°C
+
+### Crítico
+
+Representa uma situação grave, que exige ação imediata.
+
+Exemplo:
+
+* Energia abaixo ou igual a 20%
+* Comunicação abaixo ou igual a 50%
+* Temperatura acima ou igual a 40°C
