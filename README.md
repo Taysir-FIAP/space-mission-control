@@ -163,7 +163,7 @@ Após iniciar o Expo, é possível abrir o projeto de algumas formas:
 
 ## Estrutura do Projeto
 
-txt
+```txt
 space-mission-control/
 ├── src/
 │   ├── app/
@@ -191,6 +191,7 @@ space-mission-control/
 ├── package.json
 ├── package-lock.json
 └── README.md
+```
 
 
 ## Principais Arquivos
